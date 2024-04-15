@@ -6,6 +6,8 @@ import com.example.fakestore.services.FakeStoreProductService;
 import com.example.fakestore.services.productService;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/products")
 public class ProductController {
@@ -17,5 +19,9 @@ public class ProductController {
     @GetMapping("/{id}")
     public product getProductById(@PathVariable("id") Long id) {
         return ProductService.getProductbyID(id);
+    }
+    @GetMapping
+    public List<product> getAllProducts() {
+        return ProductService.getAllProducts();
     }
 }
